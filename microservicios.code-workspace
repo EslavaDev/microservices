@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "wolfy.com.actors"
+		},
+		{
+			"path": "wolfy.com.films"
+		},
+		{
+			"path": "wolfy.com.users"
+		},
+		{
+			"path": "wolfy.com.api"
+		}
+	],
+	"settings": {}
+}

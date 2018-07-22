@@ -1,0 +1,19 @@
+fuge_global:
+  tail: true
+  monitor: true
+  monitor_excludes:
+    - '**/node_modules/**'
+    - '**/.git/**'
+    - '**/*.log'
+profiles:
+  type: process
+  path: ./peerpeel.com.profiles
+  run: node index.js
+urgentes:
+  type: process
+  path: ./peerpeel.com.urgentes
+  run: node index.js
+api:
+  type: process
+  path: ./peerpeel.com.api
+  run: node index.js

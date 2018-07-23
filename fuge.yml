@@ -13,6 +13,10 @@ urgentes:
   type: process
   path: ./peerpeel.com.urgentes
   run: node index.js
+post:
+  type: process
+  path: ./peerpeel.com.post
+  run: node index.js
 api:
   type: process
   path: ./peerpeel.com.api

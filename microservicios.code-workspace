@@ -1,16 +1,19 @@
 {
 	"folders": [
 		{
-			"path": "wolfy.com.actors"
+			"path": "peerpeel.com.post"
 		},
 		{
-			"path": "wolfy.com.films"
+			"path": "peerpeel.com.api"
 		},
 		{
-			"path": "wolfy.com.users"
+			"path": "peerpeel.com.profiles"
 		},
 		{
-			"path": "wolfy.com.api"
+			"path": "peerpeel.com.reports"
+		},
+		{
+			"path": "peerpeel.com.urgentes"
 		}
 	],
 	"settings": {}

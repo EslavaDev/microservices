@@ -1,4 +1,4 @@
-const {Post} = require('./models');
+const {Post, User} = require('./models');
 
 
 module.exports = class Controller{
@@ -14,12 +14,27 @@ module.exports = class Controller{
 
   async save(data, Rabbit){
     try{
-      let temp = JSON.parse(data.payload)
+      //console.log(data)
+      let temp = data
+      let obj;
+      obj = (temp.body)? temp.body : null;
+      if(temp.ids){
+          console.log("entro aca, ",temp.ids)
+          let user = await new User({'id': temp.ids.userId}).fetch();
+          //let worker = await new User({'id': temp.ids.workerId}).fetch();
+          if(user && typeof user != 'undefined'){
+            Object.assign(obj, {userId: user.id});
+        }else{
+          return "Usuario ingresado no existe";
+        }
+      }else{
+        return "Id no ingresados"; 
+      }
 
-
-      let records = await new Post(temp).save();
+      let records = await new Post(obj).save();
+      console.log("records: ",records.attributes)
       //validar si en records llega un objeto dataValues si no se debe buscar la manera de enviar los datos
-      Rabbit.createService(workers, records.dataValues)
+      Rabbit.createService(records.attributes)
       return records.toJSON();
     }catch(ex){
       console.log(ex); 

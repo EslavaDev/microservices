@@ -1,5 +1,5 @@
 const Controllers = require('./controllers');
-const rabbit = require('../queue/connection')
+const rabbit = require('./queue/connection')
 const rabbitCon = rabbit.connect()
 
 module.exports = function Controller(options){
@@ -15,9 +15,11 @@ module.exports = function Controller(options){
   });
   this.add("role:Post, cmd:save", async(msg,reply) =>{
     try{
-      let post = await postControllers.save(msg,rabbit)
+      let data = msg.payload
+      let post = await postControllers.save(data,rabbit)
       reply(null,{response:post});
     }catch(err){
+      //console.log("entro al error")
       reply(err);
     }
   })

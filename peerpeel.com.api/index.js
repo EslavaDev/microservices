@@ -33,18 +33,20 @@ const chairo = require('chairo');
         payload: null
       })
     }
-  },
-  {
-    path:"/api/post/save",
-    method:"POST",
-    handler: (req,reply)=>{
-      return reply.act({
-        role:"Post",
-        cmd:"save",
-        payload: req.payload
-      })
-    }
-  }])  
+  }])
+  server.route(
+    {
+      path:"/api/post/save",
+      method:"POST",
+      handler: (req,reply)=>{
+        let payload = req.payload
+        return reply.act({
+          role:"Post",
+          cmd:"save",
+          payload
+        })
+      }
+    }) 
   await server.start();
   console.log(`the server is runing at ${server.info.port}`)
 

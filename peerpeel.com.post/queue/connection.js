@@ -1,5 +1,5 @@
 const amqp = require('amqplib/callback_api') // importo la libreria que funciona con el rabbit
-const sendUser = require('./worker')
+//const sendUser = require('./worker')
 
 // variables que seran necesarias luego
 let rabbitConn

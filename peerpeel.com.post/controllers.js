@@ -18,6 +18,7 @@ module.exports = class Controller{
       let temp = data
       let obj;
       obj = (temp.body)? temp.body : null;
+      if(temp.body){
       if(temp.ids){
           console.log("entro aca, ",temp.ids)
           let user = await new User({'id': temp.ids.userId}).fetch();
@@ -36,6 +37,9 @@ module.exports = class Controller{
       //validar si en records llega un objeto dataValues si no se debe buscar la manera de enviar los datos
       Rabbit.createService(records.attributes)
       return records.toJSON();
+    }else{
+      return "Ingrese el Pedido"
+    }
     }catch(ex){
       console.log(ex); 
       throw ex;

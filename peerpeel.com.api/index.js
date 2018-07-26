@@ -33,6 +33,18 @@ const chairo = require('chairo');
         payload: null
       })
     }
+  },
+  {
+    path:"/api/urgentes/save",
+    method:"POST",
+    handler: (req,reply)=>{
+      let payload = req.payload
+      return reply.act({
+        role:"Urgentes",
+        cmd:"save",
+        payload
+      })
+    }
   }])
   server.route(
     {

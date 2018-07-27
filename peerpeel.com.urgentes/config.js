@@ -6,7 +6,7 @@ module.exports = {
       host: "127.0.0.1",
       database: "peerpeel",
       user: "root",
-      password: "p33rp33l",
+      password: "sql",
       chartset: "utf8"
     }
   }

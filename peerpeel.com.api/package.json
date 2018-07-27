@@ -10,9 +10,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bookshelf": "^0.13.3",
     "boom": "^7.2.0",
     "chairo": "^4.0.0",
     "hapi": "^17.5.2",
-    "seneca": "^3.7.0"
+    "hapi-auth-jwt2": "^8.1.0",
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
+    "joi": "^13.4.0",
+    "jsonwebtoken": "^8.3.0",
+    "knex": "^0.15.2",
+    "lodash": "^4.17.10",
+    "mysql": "^2.16.0",
+    "seneca": "^3.7.0",
+    "vision": "^5.3.3"
   }
 }

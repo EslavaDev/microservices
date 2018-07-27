@@ -1,9 +1,9 @@
-const {Urgente, User} = require('./models');
+const {Urgente,UrgenteC, User} = require('./models');
 
 module.exports = class Controller{
   async fetchAll(){
     try{
-      let records = await Urgente.fetchAll();
+      let records =  await UrgenteC.forge().fetch({withRelated: ['user', 'worker']});
       return records.toJSON();
     }catch(ex){
       console.log(ex); 

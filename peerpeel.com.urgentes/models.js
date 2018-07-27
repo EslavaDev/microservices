@@ -15,11 +15,15 @@ const User = bookshelf.Model.extend({
   hasTimestamps: false,
   idAttribute: 'id',
   tableName: "users",
-  post: function() {
+  urgente: function() {
     return this.hasMany(Urgente);
   }
 });
+var UrgenteC = bookshelf.Collection.extend({
+  model: Urgente
+});
 module.exports = {
   Urgente,
+  UrgenteC,
   User
 }

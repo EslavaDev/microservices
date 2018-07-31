@@ -2,7 +2,7 @@ module.exports= {
     documentationPath: '/',
     basePath: '/api/',
     info: {
-      title: 'Wolfy Api',
+      title: 'PeerPeel Api',
       description: 'microservices peerpeel API',
       version: '1.0.0',
       contact: {

@@ -12,23 +12,34 @@ const fetchAllOptions={
 const AuthOptions={
     auth: false,
     cors:true,
-    notes: "generate a new Token",
+    notes: 
+    ` method for generate a new Token and SingIn for user: creating json  \n
+    {
+        email: 'aqui va el email',
+        password: 'aqui va el password'
+    }`,
     description: "use this metod for signin staff",
     validate:{
-        payload:Joi.object({
-            email: Joi.string().max(30).required()
+        payload:Joi.object().keys({
+            email: Joi.string().trim().max(30).required()
             .description("email that the user'll use to acces to the app")
-            .example("batman")
             .label("email"),
-            password: Joi.string().max(40).required()
+ /*           test:Joi.any()
+            .meta({ swaggerType: 'file' })
+            .description('json file'),*/
+            password: Joi.string().trim().max(40).required()
             .description("the password for accesing to the platform")
             .label("password")
         }).label("payload")
     },
     plugins:{
         'hapi-swagger':{
-            payloadType: 'form'
+            payloadType: 'form',
+            parameters:{
+                example:{
+                "hola": "hola"}
         }
+    }
     },
     tags:["api","staff"]
 

@@ -89,7 +89,8 @@ const Utilities = require('./Utilities');
       }
     },
     {
-      path: "/api/urgentes/save",
+
+      path: "/api/urgentes/save/{id}",
       method: "POST",
       handler: (req, reply) => {
         let payload = req.payload
@@ -133,6 +134,7 @@ server.route({
     method: "POST", 
     handler:  async(request, reply) =>{
         try{
+          
             let user = await new User(request.payload).fetch()
             if(!user){
                 return console.error('no autorizado');

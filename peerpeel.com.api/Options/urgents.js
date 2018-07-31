@@ -9,7 +9,7 @@ const findByIdOption={
     description: "Use this method to find a movie by id",
     validate:{
         params:{
-            id: Joi.number().integer().description("this is the id of the movie").required()
+            id: Joi.number().integer().example("prueba de example").description("this is the id of the movie").required()
         }
     },
     tags:["api","urgents"]

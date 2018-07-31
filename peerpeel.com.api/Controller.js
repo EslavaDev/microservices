@@ -1,6 +1,7 @@
 const {
   User
 } = require('./models');
+const jwt = require('jsonwebtoken');
 const Boom = require('boom');
 
 async function fetchAll(
@@ -8,6 +9,8 @@ async function fetchAll(
   reply
 ) {
   try {
+    let data = await jwt.decode(request.headers.authorization)
+    console.log('data ', data)
     let records = await User.fetchAll();
     return records.toJSON();
   } catch (err) {

@@ -25,7 +25,46 @@ const fetchAllOptions={
 
 }
 
+const saveOptions={
+    auth: false,
+    cors:true,
+    notes: 
+    ` method for generate a new Token and SingIn for user: creating json  \n
+    {
+        "body":{
+            "description": "dasdasd",
+            "directionExist": false,
+            "locationExist": false,
+            "status": 1,
+            "price":  10000
+        },
+        "ids":{
+          "userId": 4
+        }
+    }`,
+    description: "use this metod for signin staff",
+    validate:{
+        payload:Joi.object().keys({
+            body: Joi.object().keys({
+                description: Joi.string().required().example('pasear chandoso').label('description'),
+                directionExist: Joi.boolean().required().label('directionExist'),
+                locationExist: Joi.boolean().required().label('locationExist'),
+                status: Joi.number().integer().required().default(1).label('status'),
+                price: Joi.number().integer().required().label('price')
+            }).label('body'),
+            ids: Joi.object().keys({
+                userId: Joi.number().integer().required().label('userId')
+            }).label('ids')
+            
+        }).label("payload")
+    
+    },
+    tags:["api","urgents"]
+
+}
+
 module.exports = {
     fetchAllOptions,
-    findByIdOption
+    findByIdOption,
+    saveOptions
 }

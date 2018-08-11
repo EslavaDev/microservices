@@ -33,7 +33,7 @@ module.exports = class Controller{
       obj = (temp.body)? temp.body : null;
       if(obj){
         if(temp.ids){
-          console.log("entro aca, ",temp.ids)
+          //console.log("entro aca, ",temp.ids)
           let user = await new User({'id': temp.ids.userId}).fetch();
           //let worker = await new User({'id': temp.ids.workerId}).fetch();
           if(user && typeof user != 'undefined'){
@@ -45,16 +45,17 @@ module.exports = class Controller{
         return "Id no ingresados"; 
       }
       let records = await Urgente.forge(obj).save();
-      let workers = await User.where({
+      let workers = User.where({
         workerFilesStatus: 1,
         connected: 1,
         status: 1
-      }).fetchAll()
-      console.log("workers: ",workers.attributes)
-      console.log("result: data values", records.attributes)
-      console.log("result:", records)
-      Rabbit.createService(workers, records.attributes)
-      return records.toJSON()
+      }).fetchAll().then(res => res.toJSON())
+      .then( worker => Rabbit.createService(worker, records.attributes))
+     await  console.log("workers: ",workers)
+      //console.log("result: data values", records.attributes)
+     // console.log("result:", records)
+      
+      return await records.toJSON()
       }else{
         return "Ingrese un servicio valido"
       }

@@ -89,10 +89,11 @@ const Utilities = require('./Utilities');
       }
     },
     {
-
+      options: UrgentOp.saveOptions,
       path: "/api/urgentes/save",
       method: "POST",
       handler: (req, reply) => {
+        console.log('payload', req.payload)
         let payload = req.payload
         return reply.act({
           role: "Urgentes",
@@ -103,7 +104,7 @@ const Utilities = require('./Utilities');
     }
   ])
   server.route({
-    options: UrgentOp.saveOptions,
+    
     path: "/api/post/save",
     method: "POST",
     handler: (req, reply) => {

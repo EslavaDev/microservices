@@ -104,10 +104,6 @@ const Utilities = require('./Utilities');
     }
   ])
   server.route({
-<<<<<<< HEAD
-=======
-    
->>>>>>> da387d50736b3470d1a944eb7212379960762afa
     path: "/api/post/save",
     method: "POST",
     handler: (req, reply) => {

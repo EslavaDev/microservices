@@ -4,7 +4,7 @@ module.exports = {
     connection: {
       port: 3306,
       host: "127.0.0.1",
-      database: "test",
+      database: "peerpeel",
       user: "root",
       password: "p33rp33l",
       chartset: "utf8"

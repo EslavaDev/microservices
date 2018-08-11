@@ -1,0 +1,32 @@
+{
+  "apps" : [{
+    "name"        : "aplicacion-principal",
+    "script"      : "./peerpeel.com.api/index.js",
+    "watch"       : true,
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "env_production" : {
+       "NODE_ENV": "production"
+    }
+  }
+  ,{
+    "name"       : "urgentes",
+    "script"     : "./peerpeel.com.urgentes/index.js",
+    "watch"       : true,
+    "exec_mode"  : "cluster"
+  }
+  ,{
+    "name"       : "post",
+    "script"     : "./peerpeel.com.post/index.js",
+    "watch"      : true,
+    "exec_mode"  : "cluster"
+  }
+  ,{
+    "push"       : "profiles",
+    "script"     : "./peerpeel.com.profiles/index.js",
+    "watch"       : true,
+    "exec_mode"  : "cluster"
+  }
+]
+}

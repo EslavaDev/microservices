@@ -26,7 +26,8 @@ const Utilities = require('./Utilities');
 (async () => {
 
   const server = new hapi.Server({
-    port: Server.port
+    port: Server.port,
+    host: '31.220.55.37'
   });
   await server.register([
     Vision,

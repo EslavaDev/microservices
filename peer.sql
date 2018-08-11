@@ -261,6 +261,7 @@ CREATE TABLE `users` (
   `identification` varchar(255) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
+  `token_push` varchar(255) NOT NULL,
   `workerFilesStatus` tinyint(4) DEFAULT 0,
   `status` tinyint(4) NOT NULL DEFAULT 0,
   `connected` tinyint(4) NOT NULL DEFAULT 0,
@@ -276,7 +277,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'daniel','eslava','23132132','dasdasda','123132','dasdadas','123123',0,0,0,NULL,NULL),(2,'alejandro','herrera','1231564','sdadsada','156489','dasd4a65sd4as','4564654',1,1,1,NULL,NULL),(3,'test','test','45645646','dasd54as56d4','4564654','4dasdad456','45646546',1,1,1,NULL,NULL),(4,'rara','123das','123132','ad56s4dsa6d','123132132','4da56sd4a65sd4','123132',1,1,1,NULL,NULL);
+INSERT INTO `users` VALUES (1,'daniel','eslava','23132132','dasdasda','123132','dasdadas','123123','token',0,0,0,NULL,NULL),(2,'alejandro','herrera','1231564','sdadsada','156489','dasd4a65sd4as','4564654','token',1,1,1,NULL,NULL),(3,'test','test','45645646','dasd54as56d4','4564654','4dasdad456','45646546','token',1,1,1,NULL,NULL),(4,'rara','123das','123132','ad56s4dsa6d','123132132','4da56sd4a65sd4','123132','token',1,1,1,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 

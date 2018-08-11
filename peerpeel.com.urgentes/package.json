@@ -12,6 +12,7 @@
   "dependencies": {
     "amqplib": "^0.5.2",
     "bookshelf": "^0.13.3",
+    "firebase-admin": "^5.13.1",
     "knex": "^0.15.2",
     "mysql": "^2.16.0",
     "seneca": "^3.7.0"

@@ -89,7 +89,7 @@ const Utilities = require('./Utilities');
       }
     },
     {
-
+      options: UrgentOp.saveOptions,
       path: "/api/urgentes/save",
       method: "POST",
       handler: (req, reply) => {
@@ -103,7 +103,6 @@ const Utilities = require('./Utilities');
     }
   ])
   server.route({
-    options: UrgentOp.saveOptions,
     path: "/api/post/save",
     method: "POST",
     handler: (req, reply) => {

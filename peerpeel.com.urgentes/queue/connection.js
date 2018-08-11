@@ -1,5 +1,12 @@
 const amqp = require('amqplib/callback_api') // importo la libreria que funciona con el rabbit
 const sendUser = require('./worker')
+const admin = require('firebase-admin');
+const serviceAccount = require("./serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://peerpeel-47951.firebaseio.com"
+});
 
 // variables que seran necesarias luego
 let rabbitConn
@@ -52,9 +59,10 @@ module.exports.connect = function rabbitCon () {
   });
 }
 
-module.exports.createService = function createService (workers, data){ // para poder usar las variables que tenemos aca sin tener que exportarlas
-  console.log(data)
+module.exports.createService = function createService (user, workers, data){ // para poder usar las variables que tenemos aca sin tener que exportarlas
+
   channelPri.publish('urgente_ex', 'recibir_servicios', new Buffer(JSON.stringify({ // hacemos la publicacion para que el rabbit la atrape, especificamos a que cola debe que ir y su etiqueta
+    user: user,
     service: data,
     workers: workers
   })));
@@ -66,7 +74,6 @@ function consumeMessage (msg){
     let dataQueue = JSON.parse(msg.content.toString()); // se obtiene la informacion de la cola
     let dataService = dataQueue.service
     let dataWorkers = dataQueue.workers
-    console.log('info servicio', dataService)
 
     let msgPrincipal = msg // msg contiene una serie de atributos que necesitara rabbit mas adelante
     let q = dataService.id // las colas deben ser unicas por lo cual les damos el id del servicio 
@@ -95,6 +102,7 @@ function consumeMessage (msg){
       dataWorkers.map((worker) => {
         console.log(worker)
         chPush.publish('usuarios', 'push_usuarios', new Buffer(JSON.stringify({ // publico un mensaje, es decir, le envio una notificacion al canal que acabo de crear
+          user: dataQueue.user,
           worker: worker, // informacion del worker que atendera
         })));
       })

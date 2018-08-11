@@ -51,6 +51,7 @@ module.exports = class Controller{
         workerFilesStatus: 1,
         connected: 1,
         status: 1
+<<<<<<< HEAD
       }).fetchAll().then(res => res.toJSON())
       .then( worker => Rabbit.createService(client,worker, records.attributes))
         await  console.log("workers: ",workers)
@@ -58,6 +59,14 @@ module.exports = class Controller{
      // console.log("result:", records)
       
         return await records.toJSON()
+=======
+      }).fetchAll()
+      console.log("workers: ",workers)
+      console.log("result: data values", records.attributes)
+      console.log("result:", records)
+      await Rabbit.createService(workers, records.attributes)
+      return records.toJSON()
+>>>>>>> da387d50736b3470d1a944eb7212379960762afa
       }else{
         return "Ingrese un servicio valido"
       }

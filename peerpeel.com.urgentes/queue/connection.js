@@ -99,6 +99,7 @@ function consumeMessage (msg){
     }) 
     
     setTimeout(function(){ // darle tiempo al channel de crearse
+      console.log('data workers', dataWorkers)
       dataWorkers.map((worker) => {
         console.log(worker)
         chPush.publish('usuarios', 'push_usuarios', new Buffer(JSON.stringify({ // publico un mensaje, es decir, le envio una notificacion al canal que acabo de crear

@@ -23,7 +23,7 @@
     "exec_mode"  : "cluster"
   }
   ,{
-    "push"       : "profiles",
+    "name"       : "profiles",
     "script"     : "./peerpeel.com.profiles/index.js",
     "watch"       : true,
     "exec_mode"  : "cluster"

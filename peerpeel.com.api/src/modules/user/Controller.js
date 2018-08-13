@@ -78,10 +78,11 @@ async function Auth(request, reply){
     
       let user = await new User(request.payload).fetch()
       if(!user){
-          return reply.response("usuario o contraseña incorrecta").code(403);
+          return {status: 403, message: "Usuario o contraseña invalida"};
           
       }
-      return Utilities(user);
+      let token = Utilities(user)
+      return token;
   }catch(error){
       return console.error(error);
   }

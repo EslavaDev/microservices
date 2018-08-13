@@ -3,8 +3,8 @@ const { getServerConfig } = require("./Config");
 
 module.exports = function generateToken(usr){
     
-    let secretKey = process.env.JWT || getServerConfig.jwtSecret;
-    let expiresIn = process.env.JWT_EXPIRES_IN || getServerConfig.jwtExpiration;
+    let secretKey = process.env.JWT || getServerConfig().jwtSecret;
+    let expiresIn = process.env.JWT_EXPIRES_IN || getServerConfig().jwtExpiration;
     console.log(usr)
     console.log(usr.get("id"))
     let token = jwt.sign({
@@ -20,4 +20,5 @@ module.exports = function generateToken(usr){
     message: "Logueado con exito",
     token
   }
+  
 }

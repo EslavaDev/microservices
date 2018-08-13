@@ -1,7 +1,8 @@
 const {
   fetchAllOptions,
   AuthOptions,
-  removeOptions
+  removeOptions,
+  saveOptions
 } = require('./Options');
 const {
   fetchAll,
@@ -27,6 +28,7 @@ module.exports.Init = function (server, ...params) {
   });
 
   server.route({
+    options:saveOptions,
     path: "/api/user/",
     method: "POST",
     handler: save

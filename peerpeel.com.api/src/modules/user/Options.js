@@ -113,5 +113,6 @@ const removeOptions={
 module.exports = {
     AuthOptions,
     removeOptions,
+    saveOptions,
     fetchAllOptions
 }

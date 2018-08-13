@@ -1,8 +1,9 @@
 const {
   User
-} = require('./models');
+} = require('../../models')
 const jwt = require('jsonwebtoken');
 const Boom = require('boom');
+const Utilities = require('../../Utilities');
 
 async function fetchAll(
   request,
@@ -72,9 +73,25 @@ async function update(
   }
 }
 
+async function Auth(request, reply){
+  try{
+    
+      let user = await new User(request.payload).fetch()
+      if(!user){
+          return reply.response("usuario o contraseña incorrecta").code(403);
+          
+      }
+      return Utilities(user);
+  }catch(error){
+      return console.error(error);
+  }
+}
+
 module.exports = {
   save: save,
   update: update,
   fetchAll: fetchAll,
-  remove:remove
+  remove:remove,
+  Auth
+
 }

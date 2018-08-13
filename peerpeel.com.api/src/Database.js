@@ -1,8 +1,8 @@
 const Knex = require('knex');
 const Bookshelf = require('bookshelf');
-const {database} = require('./config');
+const { getDatabaseConfig } = require("./Config");
 
-const knex = new Knex(database); //creating knex instance
+const knex = new Knex(getDatabaseConfig); //creating knex instance
 const bookshelf = new Bookshelf(knex); //creating bookshlef instance
 
 module.exports = bookshelf;

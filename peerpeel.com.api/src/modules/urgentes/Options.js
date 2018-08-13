@@ -1,4 +1,3 @@
-const Hapi = require('hapi');
 const Joi = require('joi');
 
 
@@ -6,10 +5,10 @@ const findByIdOption={
   
     auth: "jwt",
     cors: true,
-    description: "Use this method to find a movie by id",
+    description: "Use this method to find a services type urgent by id",
     validate:{
         params:{
-            id: Joi.number().integer().example("prueba de example").description("this is the id of the movie").required()
+            id: Joi.number().integer().example("prueba de example").description("this is the id of the service type urgent").required()
         }
     },
     tags:["api","urgents"]
@@ -26,7 +25,7 @@ const fetchAllOptions={
 }
 
 const saveOptions={
-    auth: false,
+    auth: 'jwt',
     cors:true,
     notes: 
     ` method for generate a new Token and SingIn for user: creating json  \n

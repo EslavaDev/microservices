@@ -50,6 +50,11 @@ const saveOptions={
     notes: 
     ` method for created user: creating json  \n
     {
+        name: 'aqui va el name',
+        lastname: 'aqui va el lastname'
+        identification: 'aqui va la identificacion',
+        direction: 'aqui va la direccion'
+        phone: 'aqui va el numero de telefono en (integer)'
         email: 'aqui va el email',
         password: 'aqui va el password'
     }`,

@@ -3,6 +3,6 @@ const { getServerConfig } = require("./src/Config");
 
 (async function main(){
    let configServer = getServerConfig(); 
-   console.log(configServer)
+   console.log(getServerConfig())
    await Server.Init(configServer);
 })()

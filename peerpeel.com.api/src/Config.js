@@ -11,7 +11,7 @@ const configProvider = new nconf.Provider({
 
 
 module.exports.getServerConfig = ()=>{
-    return configProvider.get("server");//mapping the JSON object to IServerCOnfig interface
+    return configProvider.get("Server");//mapping the JSON object to IServerCOnfig interface
 }
 
  module.exports.getDatabaseConfig= ()=>{

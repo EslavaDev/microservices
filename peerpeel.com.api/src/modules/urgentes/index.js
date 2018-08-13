@@ -2,7 +2,7 @@
 const {fetchAllOptions, saveOptions, findByIdOption} =require('./Options');
 const {fetchAll, save} = require('./Controller');
 module.exports.Init = function(server, ...params){
-    console.log(`the module Support is loaded`);
+    console.log(`the module Urgents is loaded`);
 
     server.route({
       options: saveOptions,

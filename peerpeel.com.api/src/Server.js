@@ -2,16 +2,20 @@ const hapi = require('hapi');
 const chairo = require('chairo');
 const Inert = require('inert');
 const Vision = require('vision');
+const path = require('path');
 const Jwt = require('hapi-auth-jwt2');
 const HapiSwagger = require('hapi-swagger');
 const Swagger = require('./Swagger');
+const { promisify, format  } = require('util');
+const fs = require('fs');
+const readDirAsync = promisify(fs.readdir);
 const validatefn = require('./Auth');
 
 module.exports.Init = async function(config){
 
   const server = new hapi.Server({
     port: config.port,
-    host: '31.220.55.37'
+    host: config.host
   });
   await server.register([
     Vision,
@@ -42,7 +46,7 @@ module.exports.Init = async function(config){
   })
 
   server.auth.strategy('jwt', 'jwt', {
-    key: Server.jwtSecret,
+    key: config.jwtSecret,
     validate: validatefn,
     verifyOptions:{
         //ignoreExpiration: true,

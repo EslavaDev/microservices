@@ -68,7 +68,7 @@ const saveOptions={
             direction: Joi.string().trim().max(50).required()
             .description("direction that the user'll use to acces to the app")
             .label("direction"),
-            phone: Joi.number().integer().trim().max(30).required()
+            phone: Joi.number().integer().max(30).required()
             .description("phone that the user'll use to acces to the app")
             .label("phone"),
             email: Joi.string().trim().max(30).required()

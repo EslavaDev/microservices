@@ -56,7 +56,7 @@ module.exports = class Controller{
       if(temp.ids){
           console.log("entro aca, ",temp.ids)
           let worker = await new User({'id': temp.ids.workerId}).fetch();
-          if(worker && typeof user != 'undefined'){
+          if(worker && typeof worker != 'undefined'){
             Object.assign(obj, {workerId: worker.id});
         }else{
           return "Usuario ingresado no existe";

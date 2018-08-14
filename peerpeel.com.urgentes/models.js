@@ -12,7 +12,7 @@ const Urgente = bookshelf.Model.extend({
   }
 });
 const User = bookshelf.Model.extend({
-  hasTimestamps: false,
+  hasTimestamps: true,
   idAttribute: 'id',
   tableName: "users",
   urgente: function() {

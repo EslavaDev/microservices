@@ -7,7 +7,7 @@ const Bookshelf = require('../Database');
 
 
 const User = Bookshelf.Model.extend({
-    hasTimestamps: false,
+    hasTimestamps: true,
     idAttribute: 'id',
     tableName: "users",
   });

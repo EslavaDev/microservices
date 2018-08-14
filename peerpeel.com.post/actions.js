@@ -22,5 +22,15 @@ module.exports = function Controller(options){
       //console.log("entro al error")
       reply(err);
     }
-  })
+  });
+  this.add("role:Post, cmd:update", async(msg,reply) =>{
+    try{
+      let data = msg.payload
+      let post = await postControllers.update(data,rabbit)
+      reply(null,{response:post});
+    }catch(err){
+      //console.log("entro al error")
+      reply(err);
+    }
+  });
 }

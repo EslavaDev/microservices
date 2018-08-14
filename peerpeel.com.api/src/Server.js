@@ -66,18 +66,7 @@ module.exports.Init = async function(config){
       }
     },
   ])
-  server.route({
-    path: "/api/post/save",
-    method: "POST",
-    handler: (req, reply) => {
-      let payload = req.payload
-      return reply.act({
-        role: "Post",
-        cmd: "save",
-        payload
-      })
-    }
-  })
+
 
 let modulesPath = path.join(__dirname, "modules");
 let directories =  await readDirAsync(modulesPath);

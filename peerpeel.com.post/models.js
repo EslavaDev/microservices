@@ -20,7 +20,12 @@ const User = bookshelf.Model.extend({
   }
 });
 
+var PostC = bookshelf.Collection.extend({
+  model: Post
+});
+
 module.exports = {
   Post,
+  PostC,
   User
 }

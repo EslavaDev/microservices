@@ -31,6 +31,7 @@ const saveOptions={
     ` method for created a new Post  \n
     {
         "body":{
+            "title": "Perrito Pro",
             "description": "dasdasd",
             "direction": "carrera noseque"
             "directionExist": false,
@@ -45,6 +46,7 @@ const saveOptions={
     validate:{
         payload:Joi.object().keys({
             body: Joi.object().keys({
+                title: Joi.string().required().example('Pasear perro').max(18).label('title'),
                 description: Joi.string().required().example('pasear chandoso').label('description'),
                 directionExist: Joi.boolean().required().label('directionExist'),
                 direction: Joi.string().required().label('direction'),

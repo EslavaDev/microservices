@@ -1,5 +1,6 @@
 const {Urgente,UrgenteC, User} = require('./models');
 
+
 module.exports = class Controller{
   async fetchAll(){
     try{
@@ -52,11 +53,15 @@ module.exports = class Controller{
         connected: 1,
         status: 1
       }).fetchAll()
-      console.log("workers: ",workers)
-      console.log("result: data values", records.attributes)
-      console.log("result:", records)
-      await Rabbit.createService(workers, records.attributes)
-      return records.toJSON()
+      console.log('--------workers: ', workers)
+      console.log(workers.lenght)
+      if(workers.lenght != 'undefined'){
+        let records = await Urgente.forge(obj).save();
+        //await Rabbit.createService(client, workers, records.attributes)
+        return records.toJSON()
+      } else {
+        return "No hay trabajadores disponibles"
+      }
       }else{
         return "Ingrese un servicio valido"
       }

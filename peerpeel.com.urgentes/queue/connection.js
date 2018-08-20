@@ -60,7 +60,6 @@ module.exports.connect = function rabbitCon () {
 }
 
 module.exports.createService = function createService (user, workers, data){ // para poder usar las variables que tenemos aca sin tener que exportarlas
-
   channelPri.publish('urgente_ex', 'recibir_servicios', new Buffer(JSON.stringify({ // hacemos la publicacion para que el rabbit la atrape, especificamos a que cola debe que ir y su etiqueta
     user: user,
     service: data,

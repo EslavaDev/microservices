@@ -46,7 +46,7 @@ const saveOptions={
     validate:{
         payload:Joi.object().keys({
             body: Joi.object().keys({
-                title: Joi.string().required().example('pasear').label('tilte'),
+                title: Joi.string().required().example('pasear').label('title'),
                 description: Joi.string().required().example('pasear chandoso').label('description'),
                 directionExist: Joi.boolean().required().label('directionExist'),
                 locationExist: Joi.boolean().required().label('locationExist'),

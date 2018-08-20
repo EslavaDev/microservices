@@ -35,11 +35,6 @@ module.exports.connect = function rabbitCon () {
             if (!err) {
               console.log('escuchando servicios') // para saber si esta escuchando
               ch.bindQueue(q.queue, ex, route) // se le asigna a la cola un nombre, una ruta 
-              ch.consume(q.queue, (msg)=>{
-                console.log(" [x] Servicio recibido       ",msg );
-              }, { // esto se ejecuta cuando le llega algo al canal aqui se define (nombre de cola, funcion a realizar, si mata el proceso)
-                noAck: false
-              });
             } else {
               console.log(err)
             }

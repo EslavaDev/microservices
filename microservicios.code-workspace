@@ -7,13 +7,16 @@
 			"path": "peerpeel.com.api"
 		},
 		{
-			"path": "peerpeel.com.profiles"
-		},
-		{
 			"path": "peerpeel.com.reports"
 		},
 		{
 			"path": "peerpeel.com.urgentes"
+		},
+		{
+			"path": "prueba-api-express"
+		},
+		{
+			"path": "peerpeel.com.categories"
 		}
 	],
 	"settings": {}

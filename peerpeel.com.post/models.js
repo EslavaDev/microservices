@@ -9,12 +9,24 @@ const Post = bookshelf.Model.extend({
   },
   worker: function() {
     return this.belongsTo(User, 'workerId');
+  },
+  category: () =>{
+    return this.belongsTo(Categories, 'category');
   }
 });
 const User = bookshelf.Model.extend({
   hasTimestamps: true,
   idAttribute: 'id',
   tableName: "users",
+  post: function() {
+    return this.hasMany(Post);
+  }
+});
+
+const Categories = bookshelf.Model.extend({
+  hasTimestamps: true,
+  idAttribute: 'id',
+  tableName: "category",
   post: function() {
     return this.hasMany(Post);
   }
@@ -27,5 +39,6 @@ var PostC = bookshelf.Collection.extend({
 module.exports = {
   Post,
   PostC,
-  User
+  User,
+  Categories
 }

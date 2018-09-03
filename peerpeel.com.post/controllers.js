@@ -1,10 +1,10 @@
-const {Post, User, PostC} = require('./models');
+const {Post, User, PostC, Categories} = require('./models');
 
 
 module.exports = class Controller{
   async fetchAll(){
     try{
-      let records = await await PostC.forge().fetch({withRelated: ['user', 'worker']});
+      let records = await await PostC.forge().fetch({withRelated: ['user', 'worker', 'category']});
       return records.toJSON();
     }catch(ex){
       console.log(ex); 
@@ -31,6 +31,14 @@ module.exports = class Controller{
       }else{
         return "Id no ingresados"; 
       }
+
+      if(temp.body.category){
+        let category = await new Categories({'id': temp.body.category}).fetch();
+          //let worker = await new User({'id': temp.ids.workerId}).fetch();
+          if(!category && typeof category == 'undefined'){
+            return "categoria ingresado no existe";
+      }
+    }
 
       let records = await new Post(obj).save();
       console.log("records: ",records.attributes)

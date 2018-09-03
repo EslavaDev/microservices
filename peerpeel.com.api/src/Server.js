@@ -10,6 +10,7 @@ const { promisify, format  } = require('util');
 const fs = require('fs');
 const readDirAsync = promisify(fs.readdir);
 const validatefn = require('./Auth');
+var connect = require('./services/connect');
 
 module.exports.Init = async function(config){
 
@@ -30,9 +31,9 @@ module.exports.Init = async function(config){
   await server.register(chairo);
   server.seneca.
   client({
-    port: 3000,
+    port: 1111,
     type: "tcp",
-    pin: "role:Profiles"
+    pin: "role:Categories"
   }). //conecction why microservice profiles
   client({
     port: 4000,
@@ -55,17 +56,24 @@ module.exports.Init = async function(config){
 });
 
   server.route([{
-      path: "/api/profiles/fetchAll",
-      method: "GET",
-      handler: (req, reply) => {
-        return reply.act({
-          role: "Profiles",
-          cmd: "fetchAll",
-          payload: null
-        })
-      }
+    options:{
+      cors:true
     },
-  ])
+    path: "/fetch",
+    method: "GET",
+    handler: async (req, reply) => {
+      var headers = {
+        'Authorization':req.headers.Authorization
+    };
+
+    console.log("_________________")
+    //console.log(path)
+    let response = await connect.petition('GET','127.0.0.1',3500,'/fetch',{},headers)
+
+      return {response}
+    }
+  },
+])
 
 
 let modulesPath = path.join(__dirname, "modules");

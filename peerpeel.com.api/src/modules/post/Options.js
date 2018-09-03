@@ -33,7 +33,8 @@ const saveOptions={
         "body":{
             "title": "Perrito Pro",
             "description": "dasdasd",
-            "direction": "carrera noseque"
+            "direction": "carrera noseque",
+            category: 1,
             "directionExist": false,
             "locationExist": false
             "price":  10000
@@ -49,9 +50,10 @@ const saveOptions={
                 title: Joi.string().required().example('Pasear perro').max(18).label('title'),
                 description: Joi.string().required().example('pasear chandoso').label('description'),
                 directionExist: Joi.boolean().required().label('directionExist'),
+                category: Joi.number().integer().required().example(1).label('category'),
                 direction: Joi.string().required().label('direction'),
                 locationExist: Joi.boolean().required().label('locationExist'),
-                status: Joi.number().integer().required().default(1).label('status'),
+                status: Joi.number().integer().required().default(0).label('status'),
                 price: Joi.number().integer().required().label('price')
             }).label('body'),
             ids: Joi.object().keys({

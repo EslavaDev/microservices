@@ -3,7 +3,7 @@
     "client": "mysql",
     "connection": {
       "port": 3306,
-      "host": "127.0.0.1",
+      "host": "31.220.55.37",
       "database": "peerpeel",
       "user": "root",
       "password": "p33rp33l",

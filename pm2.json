@@ -17,8 +17,8 @@
     "exec_mode"  : "cluster"
   }
   ,{
-    "name"       : "profiles",
-    "script"     : "./peerpeel.com.profiles/index.js",
+    "name"       : "categories",
+    "script"     : "./peerpeel.com.categories/index.js",
     "watch"       : true,
     "exec_mode"  : "cluster"
   }
